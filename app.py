@@ -43,8 +43,26 @@ def init_db():
     )
     """)
 
-    # ... add other tables similarly ...
 
     conn.commit()
 
 init_db()
+
+def add_user(first_name, last_name, email, password, address, city, state, zipcode, country, phone_number):
+    cursor.execute("INSERT INTO users (first_name, last_name, email, password, address, city, state, zipcode, country, phone_number) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                   (first_name, last_name, email, password, address, city, state, zipcode, country, phone_number))
+    conn.commit()
+
+def add_product(category_id, name, description, price, stock_quantity, image_url, date_added):
+    cursor.execute("INSERT INTO products (category_id, name, description, price, stock_quantity, image_url, date_added) VALUES (?, ?, ?, ?, ?, ?, ?)",
+                   (category_id, name, description, price, stock_quantity, image_url, date_added))
+    conn.commit()
+
+def get_products():
+    cursor.execute("SELECT * FROM products")
+    return cursor.fetchall()
+
+def get_users():
+    cursor.execute("SELECT * FROM users")
+    return cursor.fetchall()
+

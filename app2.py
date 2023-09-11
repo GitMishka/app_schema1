@@ -105,7 +105,7 @@ def init_db():
     # Commit the changes.
     conn.commit()
 
-# Initialize the database.
+# Initialize the database / check tables
 init_db()
 def list_tables():
     cursor.execute("SELECT name FROM sqlite_master WHERE type='table';")
@@ -117,5 +117,4 @@ for table in list_tables():
 
 print("Database schema initialized in memory!")
 
-# This will keep the program running so you can inspect the in-memory database, if needed.
 input("Press any key to exit...")

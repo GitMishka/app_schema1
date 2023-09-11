@@ -66,3 +66,30 @@ def get_users():
     cursor.execute("SELECT * FROM users")
     return cursor.fetchall()
 
+
+def main():
+    while True:
+        print("1. Add User")
+        print("2. Add Product")
+        print("3. View Products")
+        print("4. View Users")
+
+        choice = input("Choose an option: ")
+
+        if choice == "1":
+            # Ask user for inputs and then call add_user()
+            pass  # Fill in with actual functionality
+        elif choice == "2":
+            # Ask user for inputs and then call add_product()
+            pass  # Fill in with actual functionality
+        elif choice == "3":
+            products = get_products()
+            for product in products:
+                print(product)
+        elif choice == "4":
+            users = get_users()
+            for user in users:
+                print(user)
+
+if __name__ == "__main__":
+    main()

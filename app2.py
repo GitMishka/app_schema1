@@ -107,6 +107,13 @@ def init_db():
 
 # Initialize the database.
 init_db()
+def list_tables():
+    cursor.execute("SELECT name FROM sqlite_master WHERE type='table';")
+    tables = cursor.fetchall()
+    return [table[0] for table in tables]
+print("Tables created:")
+for table in list_tables():
+    print(table)
 
 print("Database schema initialized in memory!")
 
